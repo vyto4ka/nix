@@ -19,6 +19,7 @@
         modules = [
           ./configuration.nix
           ./modules/winapps.nix
+          ./modules/docker.nix
         ];
         specialArgs = { inherit inputs; };
       };
