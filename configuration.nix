@@ -79,12 +79,13 @@
     qt5.qtx11extras
     xorg.libX11
     xorg.libXext
+    mesa
   ];
 
   programs.nix-ld.enable   = true;
   programs.nix-ld.package  = pkgs.nix-ld;
   programs.nix-ld.libraries = with pkgs; [
-    glibc qt5.qtbase qt5.qtsvg qt5.qtx11extras xorg.libX11 xorg.libXext
+    glibc qt5.qtbase qt5.qtsvg qt5.qtx11extras xorg.libX11 xorg.libXext mesa
   ];
   
   #fish
