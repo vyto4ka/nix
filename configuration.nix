@@ -34,7 +34,7 @@
     LC_NAME           = "ru_RU.UTF-8";
   };
 
-
+  #display manager 
   services.xserver = {
     enable = true;
     xkb = {
@@ -67,7 +67,8 @@
     shell        = pkgs.fish;
     extraGroups  = [ "wheel" "networkmanager" ];
   };
-
+  
+  #some shit..
   environment.systemPackages = with pkgs; [
     freerdp
     fish
@@ -82,6 +83,7 @@
     libglvnd
   ];
 
+  #for launching some apps
   programs.nix-ld.enable   = true;
   programs.nix-ld.package  = pkgs.nix-ld;
   programs.nix-ld.libraries = with pkgs; [

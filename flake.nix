@@ -18,8 +18,8 @@
         inherit system;
         modules = [
           ./configuration.nix
-          ./modules/winapps.nix
-          ./modules/docker.nix
+          #./modules/winapps.nix
+          ./modules/virtualization.nix
         ];
         specialArgs = { inherit inputs; };
       };
