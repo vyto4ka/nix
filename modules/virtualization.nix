@@ -1,21 +1,23 @@
 { config, pkgs, lib, ... }:
 
 {
-  virtualisation.docker.enable  = true;
-  boot.kernelModules = [ "kvm" "kvm-intel" ];  
-  boot.extraModprobeConfig = ''
-    options kvm-intel nested=1
-  '' ;
-  virtualisation.libvirtd.enable = true;
+  #  VirtualBox 
   services.virtualisation.virtualbox.host.enable = true;
+  boot.kernelModules = [ "vboxdrv" ];
+  users.users.vyto4ka.extraGroups = [ "vboxusers" ];
 
-  virtualisation.docker.package = pkgs.docker;
-  users.users.vyto4ka = {
-    extraGroups = [ "docker" "kvm" "libvirtd" "vboxusers"];
-  };
+  # Docker+KVM 
+  # virtualisation.docker.enable  = true;
+  # boot.kernelModules             = [ "kvm" "kvm-intel" ];
+  # boot.extraModprobeConfig       = ''
+  #   options kvm-intel nested=1
+  # '';
+  # virtualisation.libvirtd.enable = true;
+  # users.users.vyto4ka.extraGroups = [ "docker" "kvm" "libvirtd" ];
+  # virtualisation.docker.package = pkgs.docker;
 
-  environment.systemPackages = [
-    pkgs.docker
-    pkgs.docker-compose
-  ];
+  # environment.systemPackages = [
+  #   pkgs.docker
+  #   pkgs.docker-compose
+  # ];
 }
