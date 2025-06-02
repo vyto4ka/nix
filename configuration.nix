@@ -83,6 +83,13 @@
     libglvnd
   ];
 
+  fonts.fonts = with pkgs; [
+    nerd-fonts-hack
+    nerd-fonts-jetbrains
+    nerd-fonts-fira-code
+    noto-fonts-emoji
+  ];
+
   #for launching some apps
   programs.nix-ld.enable   = true;
   programs.nix-ld.package  = pkgs.nix-ld;
