@@ -21,5 +21,12 @@
     TERMINAL = "kitty";
   };
 
+ programs.fish = {
+   enable = true;
+   prompt = {
+     theme = "agnoster";
+   };
+ };
+
   programs.bash.enable = true;
 }
