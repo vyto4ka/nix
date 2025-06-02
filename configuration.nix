@@ -85,12 +85,11 @@
 
   #fonts
   fonts.packages = with pkgs; [
-    ("nerd-fonts".hack)
-    ("nerd-fonts"."fira-code")
-    ("nerd-fonts"."jetbrains-mono")
+    nerd-fonts.hack
+    nerd-fonts."fira-code"
+    nerd-fonts."jetbrains-mono"
     noto-fonts-emoji
   ];
-
   #for launching some apps
   programs.nix-ld.enable   = true;
   programs.nix-ld.package  = pkgs.nix-ld;
