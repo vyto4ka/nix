@@ -84,10 +84,10 @@
   ];
 
   #fonts
-  fonts.fonts = with pkgs; [
-    nerdfonts.hack
-    nerdfonts."fira-code"
-    nerdfonts."jetbrains-mono"
+  fonts.packages = with pkgs; [
+    ("nerd-fonts".hack)
+    ("nerd-fonts"."fira-code")
+    ("nerd-fonts"."jetbrains-mono")
     noto-fonts-emoji
   ];
 
