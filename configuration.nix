@@ -83,10 +83,11 @@
     libglvnd
   ];
 
+  #fonts
   fonts.fonts = with pkgs; [
-    nerd-fonts-hack
-    nerd-fonts-jetbrains
-    nerd-fonts-fira-code
+    nerdfonts.hack
+    nerdfonts."fira-code"
+    nerdfonts."jetbrains-mono"
     noto-fonts-emoji
   ];
 
