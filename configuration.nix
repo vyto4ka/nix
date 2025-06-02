@@ -14,6 +14,11 @@
   boot.loader.grub.useOSProber           = true;
   boot.loader.grub.efiSupport            = true;
   boot.loader.efi.canTouchEfiVariables   = true;
+  boot.blacklistedKernelModules = [                 # fix ..... vbox
+    "kvm_intel"
+    "kvm"
+  ];
+  virtualisation.libvirtd.enable = false;
 
   # host
   networking.hostName                    = "vyt";
