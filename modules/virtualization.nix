@@ -2,9 +2,10 @@
 
 {
   #  VirtualBox 
-  services.virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   boot.kernelModules = [ "vboxdrv" ];
   users.users.vyto4ka.extraGroups = [ "vboxusers" ];
+
 
   # Docker+KVM 
   # virtualisation.docker.enable  = true;
