@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for host vyt, modularized";
+  description = "NixOS config by vyto4ka";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -8,17 +8,18 @@
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
-  };
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-    let system = "x86_64-linux"; in
-    {
+    let
+      system = "x86_64-linux";
+    in {
       nixosConfigurations.vyt = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
-          #./modules/winapps.nix
+          # ./modules/winapps.nix 
           ./modules/virtualization.nix
         ];
         specialArgs = { inherit inputs; };

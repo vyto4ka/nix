@@ -22,15 +22,16 @@
 
   # host
   networking.hostName                    = "vyt";
-  #virtualisation.virtualbox.host.enable  = true;
-  #users.extraGroups.vboxusers.members    = [ "vyto4ka" ];
+  # virtualisation.virtualbox.host.enable  = true;
+  # users.extraGroups.vboxusers.members    = [ "vyto4ka" ];
 
-  # networking & locales
+  # networking
   networking.networkmanager.enable       = true;
-  services.openssh.enable                = true;
+  # services.openssh.enable                = true;
 
-  i18n.defaultLocale                     = "ru_RU.UTF-8";
-  time.timeZone                          = "Europe/Moscow";
+  # locales
+  i18n.defaultLocale  = "ru_RU.UTF-8";
+  time.timeZone       = "Europe/Moscow";
   i18n.extraLocaleSettings = {
     LC_ADDRESS        = "ru_RU.UTF-8";
     LC_IDENTIFICATION = "ru_RU.UTF-8";
@@ -39,7 +40,7 @@
     LC_NAME           = "ru_RU.UTF-8";
   };
 
-  #display manager 
+  # display manager 
   services.xserver = {
     enable = true;
     xkb = {
@@ -86,6 +87,9 @@
     xorg.libX11
     xorg.libXext
     libglvnd
+    gtk3
+    xulrunner
+    alsa-lib
   ];
 
   #fonts
@@ -99,7 +103,7 @@
   programs.nix-ld.enable   = true;
   programs.nix-ld.package  = pkgs.nix-ld;
   programs.nix-ld.libraries = with pkgs; [
-    glibc qt5.qtbase qt5.qtsvg qt5.qtx11extras xorg.libX11 xorg.libXext libglvnd
+    glibc qt5.qtbase qt5.qtsvg qt5.qtx11extras xorg.libX11 xorg.libXext libglvnd gtk3 xulrunner alsa-lib
   ];
   
   #fish
