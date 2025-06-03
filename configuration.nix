@@ -121,4 +121,7 @@
 };
   # home-manager
   home-manager.users.vyto4ka = import ./home.nix;
+
+  # other
+  programs.command-not-found.enable = true;
 }
