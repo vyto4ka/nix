@@ -13,7 +13,7 @@
 
   home.packages = with pkgs; [
     fish firefox nekoray kitty thunderbird telegram-desktop termius nordic
-    git vscodium gcc netbeans neofetch duf bat jdk11 jdk17 fastfetch
+    git vscodium gcc netbeans neofetch duf bat jdk11 jdk17 fastfetch kdeconnect
   ];
 
   home.sessionVariables = {
@@ -21,6 +21,6 @@
   };
 
   programs.bash.enable = true;
-  programs.kdeconnect.enable = true;
+  services.kdeconnect.enable = true;
 
 }
