@@ -3,9 +3,8 @@
 {
   nixpkgs.config.allowUnfree = true;
   imports = [
-    ./modules/home/neovim.nix
     ./modules/home/kitty.nix
-    ./modules/home/neofetch.nix
+    ./modules/home/fetch.nix
   ];
 
   home.stateVersion    = "24.11";
@@ -14,7 +13,7 @@
 
   home.packages = with pkgs; [
     fish firefox nekoray kitty thunderbird telegram-desktop termius nordic
-    git vscodium gcc netbeans neofetch duf bat
+    git vscodium gcc netbeans neofetch duf bat jdk11 jdk17 fastfetch
   ];
 
   home.sessionVariables = {
@@ -22,4 +21,6 @@
   };
 
   programs.bash.enable = true;
+  programs.kdeconnect.enable = true;
+
 }
