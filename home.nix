@@ -13,7 +13,7 @@
 
   home.packages = with pkgs; [
     fish firefox nekoray kitty thunderbird telegram-desktop termius nordic
-    git vscodium gcc netbeans neofetch duf bat jdk11 jdk17 fastfetch pkgs.plasma5Packages.kdeconnect-kde
+    git vscodium gcc netbeans neofetch duf bat jdk11 fastfetch pkgs.plasma5Packages.kdeconnect-kde
   ];
 
   home.sessionVariables = {
