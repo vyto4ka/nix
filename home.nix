@@ -13,7 +13,8 @@
 
   home.packages = with pkgs; [
     fish firefox nekoray kitty thunderbird telegram-desktop termius nordic
-    git vscodium gcc netbeans neofetch duf bat jdk11 fastfetch
+    git vscodium gcc netbeans neofetch duf bat jdk11 fastfetch cowsay 
+    ponysay-unstable fortune-mod
   ];
 
   home.sessionVariables = {

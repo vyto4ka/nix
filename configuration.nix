@@ -21,13 +21,13 @@
   virtualisation.libvirtd.enable = false;
 
   # host
-  networking.hostName                    = "vyt";
+  networking.hostName                      = "vyt";
   # virtualisation.virtualbox.host.enable  = true;
   # users.extraGroups.vboxusers.members    = [ "vyto4ka" ];
 
   # networking
-  networking.networkmanager.enable       = true;
-  # services.openssh.enable                = true;
+  networking.networkmanager.enable         = true;
+  # services.openssh.enable                  = true;
 
   # locales
   i18n.defaultLocale  = "ru_RU.UTF-8";
@@ -76,6 +76,7 @@
   
   #some shit..
   environment.systemPackages = with pkgs; [
+    inputs.zen-browser.packages."${system}".specific
     freerdp
     fish
     fishPlugins.plugin-git
