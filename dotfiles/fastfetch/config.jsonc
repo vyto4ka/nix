@@ -12,6 +12,8 @@
     "shell",
     "de",
     "terminal",
+    "wm",
+    "lm",
     {
       "type": "cpu",
       "format": "{name}"
