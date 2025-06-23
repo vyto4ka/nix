@@ -1,8 +1,13 @@
 { config, pkgs, inputs, ... }:
 
+let
+  hyprcommandPkg = pkgs.callPackage ./programs/hyprcommand/default.nix {};
+in
+
 {
   imports = [
     ./hardware-configuration.nix
+    ./hyprland.nix
     inputs.home-manager.nixosModules.home-manager
   ];
   system.stateVersion = "24.11";
@@ -30,7 +35,7 @@
 
   # networking
   networking.networkmanager.enable         = true;
-  # services.openssh.enable                  = true;
+  services.openssh.enable                  = true;
 
   # locales
   i18n.defaultLocale  = "ru_RU.UTF-8";
@@ -53,6 +58,10 @@
     };
   };
 
+  # hyprland
+  programs.hyprland.enable = true;
+  programs.sway.enable = true;
+
   services.displayManager.sddm = {
     enable       = true;
     wayland.enable = true;
@@ -60,6 +69,15 @@
 
   services.desktopManager.plasma6.enable = true;
 
+  nixpkgs.config.qt5 = {
+  enable = true;
+  platformTheme = "qt5ct"; 
+    style = {
+      package = pkgs.utterly-nord-plasma;
+      name = "Utterly Nord Plasma";
+    };
+  };
+ 
   # audio
   security.rtkit.enable      = true;
   services.pulseaudio.enable = false;
@@ -74,7 +92,7 @@
     isNormalUser = true;
     home         = "/home/vyto4ka";
     shell        = pkgs.fish;
-    extraGroups  = [ "wheel" "networkmanager" ];
+    extraGroups  = [ "wheel" "networkmanager" "input" "audio" "video"];
   };
   
   #some shit..
@@ -94,7 +112,13 @@
     gtk3
     xulrunner
     alsa-lib
-  ];
+    python3
+    vlc
+    gh
+    tokyonight-gtk-theme
+ ];
+
+ environment.variables.GTK_THEME = "Tokyonight-Dark";
 
   #fonts
   fonts.packages = with pkgs; [
@@ -102,6 +126,9 @@
     nerd-fonts."fira-code"
     nerd-fonts."jetbrains-mono"
     noto-fonts-emoji
+    fira-code fira-code-symbols fira-sans
+    noto-fonts noto-fonts-cjk-sans
+    papirus-icon-theme font-awesome
   ];
   #for launching some apps
   programs.nix-ld.enable   = true;

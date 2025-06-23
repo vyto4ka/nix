@@ -1,11 +1,19 @@
 { config, pkgs, lib, ... }:
 
+let
+  configDir    = ./config;
+  configEntries = builtins.readDir configDir;
+
+  configFiles = lib.mapAttrs' (name: type: {
+    name = name;
+    value = {
+      source = configDir + "/${name}";
+      force  = true;
+    };
+  }) configEntries;
+in
 {
   nixpkgs.config.allowUnfree = true;
-  imports = [
-    ./modules/home/kitty.nix
-    ./modules/home/fetch.nix
-  ];
 
   home.stateVersion    = "24.11";
   home.username        = "vyto4ka";
@@ -13,14 +21,20 @@
 
   home.packages = with pkgs; [
     fish firefox nekoray kitty thunderbird telegram-desktop termius nordic
-    git vscodium gcc netbeans neofetch duf bat jdk11 fastfetch cowsay 
-    ponysay fortune
+    git 
+    vscodium gcc netbeans neofetch duf bat jdk11 
+    fastfetch cowsay 
+    ponysay fortune 
+    libreoffice-still hunspell hunspellDicts.ru_RU
+    neovim 
   ];
 
   home.sessionVariables = {
     TERMINAL = "kitty";
   };
 
-  programs.bash.enable = true;
+  xdg.configFile = configFiles;
+
+  programs.bash.enable       = true;
   services.kdeconnect.enable = true;
 }
