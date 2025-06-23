@@ -15,7 +15,7 @@ in {
     hyprland hyprpaper hyprlock hypridle hyprshot
     hyprpicker hyprpolkitagent hyprcommandPkg # hyper
     waybar swaynotificationcenter # bar
-    rofi 
+    wofi 
     mako libnotify pavucontrol # screenshot
     playerctl acpi acpilight brightnessctl # power
     networkmanagerapplet blueman # net
