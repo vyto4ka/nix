@@ -6,3 +6,4 @@
 - Still KDE Plasma enabled
 - Kind of rice
 
+![rice](./rice.png)
