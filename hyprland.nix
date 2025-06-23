@@ -21,5 +21,7 @@ in {
     networkmanagerapplet blueman # net
     copyq socat jq wl-clipboard # util
     libsForQt5.qtstyleplugin-kvantum libsForQt5.qt5ct # style
+    kdePackages.ark kdePackages.gwenview
+    kdePackages.korganizer desktop-file-utils
   ];
 }
