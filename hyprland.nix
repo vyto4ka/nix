@@ -14,6 +14,7 @@ in {
   environment.systemPackages = with pkgs; [
     hyprland hyprpaper hyprlock hypridle hyprshot
     hyprpicker hyprpolkitagent hyprcommandPkg # hyper
+    hyprsome 
     waybar swaynotificationcenter # bar
     wofi wlogout
     mako libnotify pavucontrol # screenshot
