@@ -45,5 +45,5 @@ in
       package = pkgs.tokyonight-gtk-theme;
       name = "Tokyonight-Dark";
     };
-  }   
+  };   
 }
