@@ -68,15 +68,6 @@ in
   };
 
   services.desktopManager.plasma6.enable = true;
-
-  nixpkgs.config.qt5 = {
-  enable = true;
-  platformTheme = "qt5ct"; 
-    style = {
-      package = pkgs.utterly-nord-plasma;
-      name = "Utterly Nord Plasma";
-    };
-  };
  
   # audio
   security.rtkit.enable      = true;
@@ -119,6 +110,7 @@ in
  ];
 
  environment.variables.GTK_THEME = "Tokyonight-Dark";
+ 
 
   #fonts
   fonts.packages = with pkgs; [
