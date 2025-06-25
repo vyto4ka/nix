@@ -30,7 +30,7 @@ in
   ];
 
   home.sessionVariables = {
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
   };
 
   xdg.configFile = configFiles;
