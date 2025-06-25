@@ -21,12 +21,12 @@ in
 
   home.packages = with pkgs; [
     fish firefox nekoray kitty thunderbird telegram-desktop termius nordic
-    git 
+    git alacritty
     vscodium gcc netbeans neofetch duf bat jdk11 
     fastfetch cowsay 
     ponysay fortune 
     libreoffice-still hunspell hunspellDicts.ru_RU
-    neovim 
+    neovim monitor
   ];
 
   home.sessionVariables = {
@@ -34,6 +34,8 @@ in
   };
 
   xdg.configFile = configFiles;
+
+  programs.alacritty.enable  = true;
 
   programs.bash.enable       = true;
   services.kdeconnect.enable = true;
