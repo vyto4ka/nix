@@ -26,7 +26,7 @@ in
     fastfetch cowsay 
     ponysay fortune 
     libreoffice-still hunspell hunspellDicts.ru_RU
-    neovim btop
+    neovim btop vlc
   ];
 
   home.sessionVariables = {
