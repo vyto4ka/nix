@@ -107,6 +107,7 @@ in
     vlc
     gh
     tokyonight-gtk-theme
+    inputs.zen-browser.packages.${pkgs.system}.twilight
  ];
 
  environment.variables.GTK_THEME = "Tokyonight-Dark";
