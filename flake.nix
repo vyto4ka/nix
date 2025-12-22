@@ -1,11 +1,14 @@
 {
   description = "NixOS config by vyto4ka";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,16 +21,16 @@
   in {
     nixosConfigurations.vyt = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {
-        inherit caelestia-shell;
-      };
-      modules = [
-         ./configuration.nix
-        ./modules/virtualization.nix
 
+      modules = [
+        ./configuration.nix
+        ./modules/virtualization.nix
         {
           nixpkgs.overlays = [
-            (final: prev: { xkeyboard-config = prev.xkeyboard_config; })
+            (final: prev: {
+              xkeyboard-config =
+                prev.xkeyboard_config or prev.xkeyboardconfig or prev.xkeyboard-config;
+            })
           ];
         }
 
@@ -39,7 +42,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.vyto4ka = import ./home.nix;
         }
-            ];
-          };
+      ];
+    };
   };
 }
