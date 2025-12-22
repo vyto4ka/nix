@@ -39,4 +39,19 @@ in
 
   programs.bash.enable       = true;
   services.kdeconnect.enable = true;
+
+  programs.caelestia = {
+  enable = true;
+
+  systemd.enable = false;
+
+  cli = {
+    enable = true;
+  };
+
+  settings = {
+    paths.wallpaperDir = "~/.config/wallpaper";
+  };
+};
+
 }
