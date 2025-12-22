@@ -45,6 +45,7 @@ in
 
     package = pkgs.callPackage "${caelestia-shell}/nix/default.nix" {
       "xkeyboard-config" = pkgs.xkeyboard_config;
+      app2unit = pkgs.app2unit;
     };
 
     systemd.enable = false;

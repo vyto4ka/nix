@@ -25,6 +25,7 @@
         ./modules/virtualization.nix
 
         home-manager.nixosModules.home-manager
+        caelestia-shell.homeManagerModules.default
 
         {
           home-manager.useGlobalPkgs = true;
