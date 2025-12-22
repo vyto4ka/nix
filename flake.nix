@@ -24,6 +24,11 @@
       modules = [
         ./configuration.nix
         ./modules/virtualization.nix
+          {
+           nixpkgs.overlays = [
+            (final: prev: { xkeyboard-config = prev.xkeyboard_config; })
+          ];
+          }
         home-manager.nixosModules.home-manager
         caelestia-shell.homeManagerModules.default
         {
