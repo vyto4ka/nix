@@ -1,13 +1,8 @@
 { config, pkgs, inputs, ... }:
 
-let
-  hyprcommandPkg = pkgs.callPackage ./programs/hyprcommand/default.nix {};
-in
-
 {
   imports = [
     ./hardware-configuration.nix
-    ./hyprland.nix
     inputs.home-manager.nixosModules.home-manager
   ];
   system.stateVersion = "24.11";
