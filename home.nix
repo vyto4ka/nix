@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, caelestia-shell, ... }:
 
 let
   configDir    = ./config;
@@ -41,17 +41,19 @@ in
   services.kdeconnect.enable = true;
 
   programs.caelestia = {
-  enable = true;
-
-  systemd.enable = false;
-
-  cli = {
     enable = true;
-  };
 
-  settings = {
-    paths.wallpaperDir = "~/.config/wallpaper";
+    package = pkgs.callPackage "${caelestia-shell}/nix/default.nix" {
+      "xkeyboard-config" = pkgs.xkeyboard_config;
+    };
+
+    systemd.enable = false;
+
+    cli.enable = true;
+
+    settings = {
+      paths.wallpaperDir = "~/.config/wallpaper";
+    };
   };
-};
 
 }

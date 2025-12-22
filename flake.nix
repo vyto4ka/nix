@@ -3,12 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,21 +23,17 @@
       modules = [
         ./configuration.nix
         ./modules/virtualization.nix
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              xkeyboard-config =
-                prev.xkeyboard_config or prev.xkeyboardconfig or prev.xkeyboard-config;
-            })
-          ];
-        }
 
         home-manager.nixosModules.home-manager
-        caelestia-shell.homeManagerModules.default
 
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+
+          home-manager.extraSpecialArgs = {
+            inherit caelestia-shell;
+          };
+
           home-manager.users.vyto4ka = import ./home.nix;
         }
       ];
