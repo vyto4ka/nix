@@ -39,13 +39,4 @@ in
 
   programs.bash.enable       = true;
   services.kdeconnect.enable = true;
-
-  gtk = {
-    enable = true;
-
-    theme = {
-      package = pkgs.tokyonight-gtk-theme;
-      name = "Tokyonight-Dark";
-    };
-  };   
 }

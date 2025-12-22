@@ -91,8 +91,6 @@ in
     # inputs.zen-browser.packages."${system}".specific
     freerdp
     fish
-    fishPlugins.plugin-git
-    fishPlugins.forgit
     nekoray
     qt5.qtbase
     qt5.qtsvg
