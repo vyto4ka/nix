@@ -1,9 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
   ];
   system.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
@@ -83,7 +82,6 @@
   
   #some shit..
   environment.systemPackages = with pkgs; [
-    # inputs.zen-browser.packages."${system}".specific
     freerdp
     fish
     nekoray
@@ -100,7 +98,6 @@
     vlc
     gh
     tokyonight-gtk-theme
-    inputs.zen-browser.packages.${pkgs.system}.twilight
  ];
 
  environment.variables.GTK_THEME = "Tokyonight-Dark";
@@ -135,9 +132,6 @@
     set -gx EDITOR nvim
   '';
 };
-  # home-manager
-  home-manager.users.vyto4ka = import ./home.nix;
-
   # other
   programs.command-not-found.enable = true;
 }
