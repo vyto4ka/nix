@@ -98,6 +98,7 @@
     vlc
     gh
     tokyonight-gtk-theme
+    xkeyboard_config
  ];
 
  environment.variables.GTK_THEME = "Tokyonight-Dark";
