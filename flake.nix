@@ -22,21 +22,24 @@
         inherit caelestia-shell;
       };
       modules = [
-        ./configuration.nix
+         ./configuration.nix
         ./modules/virtualization.nix
-          {
-           nixpkgs.overlays = [
+
+        {
+          nixpkgs.overlays = [
             (final: prev: { xkeyboard-config = prev.xkeyboard_config; })
           ];
-          }
+        }
+
         home-manager.nixosModules.home-manager
         caelestia-shell.homeManagerModules.default
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.vyto4ka = import ./home.nix;
         }
-      ];
-    };
+            ];
+          };
   };
 }
