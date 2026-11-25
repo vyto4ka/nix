@@ -35,9 +35,6 @@
     "showOnHover": true,
     "dragThreshold": 120
   },
-  "utilities": {
-    "enabled": false
-  },
   "launcher": {
     "showOnHover": false,
     "dragThreshold": 120
