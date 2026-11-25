@@ -118,6 +118,14 @@ hl.bind(
     hl.dsp.exec_cmd("pgrep -x slurp >/dev/null || hyprshot -m region --clipboard-only --freeze")
 )
 
+-- Быстрое переключение блюра одним нажатием Win+Shift+B
+hl.bind(
+    "SUPER + SHIFT + B",
+    hl.dsp.exec_cmd(
+        'state=$(hyprctl getoption decoration:blur:enabled -j | jq -r ".int"); if [ "$state" = "1" ]; then hyprctl keyword decoration:blur:enabled 0 && notify-send -t 1500 "Hyprland" "Блюр выключен"; else hyprctl keyword decoration:blur:enabled 1 && notify-send -t 1500 "Hyprland" "Блюр включён"; fi'
+    )
+)
+
 -- Отдельный special workspace для AyuGram по Win+A (переносит открытое окно или запускает AyuGram)
 hl.window_rule({ match = { class = "^com\\.ayugram\\.desktop$" }, workspace = "special:ayugram" })
 hl.bind("SUPER + A", function()

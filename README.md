@@ -73,4 +73,5 @@ hyprdynamicmonitors tui --enable-lid-events
 - `SUPER + C` : редактор `codium`
 - `SUPER + E` : файловый менеджер `thunar`
 - `SUPER + SHIFT + Q` : скриншот области с фризом экрана в буфер обмена (`hyprshot`)
+- `SUPER + SHIFT + B` : переключить блюр Hyprland вкл/выкл
 - `SUPER + L` : блокировка экрана Caelestia
