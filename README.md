@@ -64,4 +64,5 @@ hyprdynamicmonitors tui --enable-lid-events
 - `SUPER + W` : браузер `zen-beta`
 - `SUPER + C` : редактор `codium`
 - `SUPER + E` : файловый менеджер `thunar`
+- `SUPER + SHIFT + Q` : скриншот области с фризом экрана в буфер обмена (`hyprshot`)
 - `SUPER + L` : блокировка экрана Caelestia

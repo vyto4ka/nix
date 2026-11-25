@@ -57,6 +57,7 @@ in
     # Ключевые CLI для прямого вызова из терминала и хоткеев
     grim
     slurp
+    hyprshot
     swappy
     wl-clipboard
     cliphist

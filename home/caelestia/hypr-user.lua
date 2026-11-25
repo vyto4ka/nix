@@ -90,6 +90,15 @@ end
 
 apply_dynamic_monitors(home .. "/.config/hypr/monitors.conf")
 
+-- Отключаем fade-анимацию слоёв slurp и hyprpicker, чтобы рамка выделения не попадала на снимок
+hl.layer_rule({ match = { namespace = "selection|hyprpicker" }, no_anim = true })
+
+-- Скриншот выбранной области с фризом экрана сразу в буфер обмена
+hl.bind(
+    "SUPER + SHIFT + Q",
+    hl.dsp.exec_cmd("pgrep -x slurp >/dev/null || hyprshot -m region --clipboard-only --freeze")
+)
+
 -- Однократная первичная инициализация цветовой схемы строго внутри живой D-Bus сессии
 -- (чтобы dconf write успешно выставил тему GTK, иконки и color-scheme)
 hl.on("hyprland.start", function()
