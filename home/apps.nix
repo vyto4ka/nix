@@ -11,6 +11,7 @@ in
     inputs.vysh.packages.${system}.default
     obsidian
     ayugram-desktop
+    vesktop
     vlc
     bat
     duf
