@@ -30,5 +30,18 @@
         { "name": "sysmon", "icon": "monitor_heart" }
       ]
     }
+  },
+  "dashboard": {
+    "showOnHover": false,
+    "dragThreshold": 120
+  },
+  "launcher": {
+    "showOnHover": false,
+    "dragThreshold": 120
+  },
+  "sidebar": {
+    "showOnHover": false,
+    "minHoverThreshold": 600,
+    "dragThreshold": 140
   }
 }
