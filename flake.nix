@@ -44,6 +44,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixowos = {
+      url = "github:yunfachi/nixowos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -69,6 +74,7 @@
           ./hosts/zenbook
           inputs.silentSDDM.nixosModules.default
           inputs.nix-index-database.nixosModules.nix-index
+          inputs.nixowos.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
