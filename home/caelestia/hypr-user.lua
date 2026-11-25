@@ -10,7 +10,29 @@ hl.config({
     xwayland = {
         force_zero_scaling = true,
     },
+    misc = {
+        vfr = true,
+    },
 })
+
+-- Более быстрые и лёгкие анимации (меньше кадров перерисовки при сохранении плавности)
+hl.animation({ leaf = "layersIn", enabled = true, speed = 2.5, bezier = "emphasizedDecel", style = "slide" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 2, bezier = "emphasizedAccel", style = "slide" })
+hl.animation({ leaf = "fadeLayers", enabled = true, speed = 2.5, bezier = "standard" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.5, bezier = "emphasizedDecel" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "emphasizedAccel" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "standard" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 2.5, bezier = "standard" })
+hl.animation({
+    leaf    = "specialWorkspace",
+    enabled = true,
+    speed   = 2.5,
+    bezier  = "specialWorkSwitch",
+    style   = "slidefadevert 10%",
+})
+hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "standard" })
+hl.animation({ leaf = "fadeDim", enabled = true, speed = 3, bezier = "standard" })
+hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "standard" })
 
 -- Стартовый масштаб встроенной OLED-панели до применения профиля hyprdynamicmonitors,
 -- чтобы избежать скачка масштаба 1.0 -> 1.5 в первую секунду входа

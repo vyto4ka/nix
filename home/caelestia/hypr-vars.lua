@@ -9,4 +9,11 @@ return {
     singleWindowGapsOut   = 6,
     windowRounding        = 8,
     workspaceSwipeFingers = 3,
+    blurSize              = 4,
+    blurPasses            = 1,
+    blurPopups            = false,
+    blurInputMethods      = false,
+    blurXray              = true,
+    shadowRange           = 8,
+    shadowRenderPower     = 2,
 }
