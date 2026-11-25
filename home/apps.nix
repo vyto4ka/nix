@@ -1,6 +1,18 @@
 { pkgs, inputs, ... }:
 let
   inherit (pkgs.stdenv.hostPlatform) system;
+
+  # Принудительно запускаем Vesktop в нативном Wayland с PipeWire-захватом экрана
+  vesktopWayland = pkgs.symlinkJoin {
+    name = "vesktop-wayland";
+    paths = [ pkgs.vesktop ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/vesktop" \
+        --add-flags "--ozone-platform=wayland" \
+        --add-flags "--enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
+    '';
+  };
 in
 {
   home.packages = with pkgs; [
@@ -11,7 +23,7 @@ in
     inputs.vysh.packages.${system}.default
     obsidian
     ayugram-desktop
-    vesktop
+    vesktopWayland
     vlc
     bat
     duf

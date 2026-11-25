@@ -21,10 +21,17 @@
   # wayland.windowManager.hyprland и programs.fish намеренно выключены:
   # конфигурацией управляют системные модули и дотсы Caelestia.
 
-  xdg.configFile."hypr/xdph.conf".text = ''
-    screencopy {
-      allow_token_by_default = true
-      force_shm = true
-    }
-  '';
+  xdg.configFile = {
+    "environment.d/10-wayland-ozone.conf".text = ''
+      NIXOS_OZONE_WL=1
+      ELECTRON_OZONE_PLATFORM_HINT=auto
+    '';
+
+    "hypr/xdph.conf".text = ''
+      screencopy {
+        allow_token_by_default = true
+        force_shm = true
+      }
+    '';
+  };
 }
