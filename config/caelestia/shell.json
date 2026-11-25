@@ -32,8 +32,11 @@
     }
   },
   "dashboard": {
-    "showOnHover": false,
+    "showOnHover": true,
     "dragThreshold": 120
+  },
+  "utilities": {
+    "enabled": false
   },
   "launcher": {
     "showOnHover": false,
