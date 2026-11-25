@@ -35,6 +35,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    vysh = {
+      url = "github:vyto4ka/vysh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";

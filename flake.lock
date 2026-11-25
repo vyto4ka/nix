@@ -192,6 +192,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "silentSDDM": "silentSDDM",
+        "vysh": "vysh",
         "zen-browser": "zen-browser"
       }
     },
@@ -212,6 +213,26 @@
       "original": {
         "owner": "uiriansan",
         "repo": "SilentSDDM",
+        "type": "github"
+      }
+    },
+    "vysh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795611038,
+        "narHash": "sha256-oF7+dvn5wv+B18Jvqahxe67sXBAx33p/y4Q58GgHZwI=",
+        "owner": "vyto4ka",
+        "repo": "vysh",
+        "rev": "7b682872ea31744aa52a03de5a3c32bb755c3cb7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vyto4ka",
+        "repo": "vysh",
         "type": "github"
       }
     },

@@ -22,6 +22,7 @@ in
     # Базовые утилиты и редактор
     curl
     git
+    gh
     glib
     neovim
 
