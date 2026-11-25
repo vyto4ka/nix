@@ -1,0 +1,34 @@
+{
+  "bar": {
+    "entries": [
+      { "id": "logo", "enabled": false },
+      { "id": "workspaces", "enabled": true },
+      { "id": "spacer", "enabled": true },
+      { "id": "activeWindow", "enabled": true },
+      { "id": "spacer", "enabled": true },
+      { "id": "tray", "enabled": true },
+      { "id": "clock", "enabled": true },
+      { "id": "statusIcons", "enabled": true },
+      { "id": "power", "enabled": true }
+    ],
+    "statusIcons": [
+      { "id": "lockStatus", "enabled": true },
+      { "id": "audio", "enabled": false },
+      { "id": "microphone", "enabled": false },
+      { "id": "kbLayout", "enabled": true },
+      { "id": "network", "enabled": true },
+      { "id": "bluetooth", "enabled": true },
+      { "id": "battery", "enabled": true }
+    ],
+    "workspaces": {
+      "specialWorkspaceIcons": [
+        { "name": "special", "icon": "star" },
+        { "name": "communication", "icon": "forum" },
+        { "name": "ayugram", "icon": "send" },
+        { "name": "music", "icon": "music_cast" },
+        { "name": "todo", "icon": "checklist" },
+        { "name": "sysmon", "icon": "monitor_heart" }
+      ]
+    }
+  }
+}
