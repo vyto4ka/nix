@@ -99,8 +99,8 @@ hl.bind(
     hl.dsp.exec_cmd("pgrep -x slurp >/dev/null || hyprshot -m region --clipboard-only --freeze")
 )
 
--- Отдельный special workspace для AyuGram по Win+A (с автозапуском, если окно не открыто)
-hl.window_rule({ match = { class = "(?i)ayugram" }, workspace = "special:ayugram" })
+-- Отдельный special workspace для AyuGram по Win+A (переносит открытое окно или запускает AyuGram)
+hl.window_rule({ match = { class = "^com\\.ayugram\\.desktop$" }, workspace = "special:ayugram" })
 hl.bind("SUPER + A", function()
     local active_ws = hl.get_active_special_workspace()
     if active_ws and active_ws.name == "special:ayugram" then
@@ -112,14 +112,20 @@ hl.bind("SUPER + A", function()
     for _, w in ipairs(hl.get_windows() or {}) do
         if w.class and w.class:lower():find("ayugram", 1, true) then
             has_ayugram = true
-            break
+            if not w.workspace or w.workspace.name ~= "special:ayugram" then
+                hl.dispatch(hl.dsp.window.move({
+                    window = "address:" .. w.address,
+                    workspace = "special:ayugram",
+                    follow = false,
+                }))
+            end
         end
     end
 
-    hl.dispatch(hl.dsp.focus({ workspace = "special:ayugram" }))
     if not has_ayugram then
         hl.dispatch(hl.dsp.exec_cmd("AyuGram", { workspace = "special:ayugram" }))
     end
+    hl.dispatch(hl.dsp.workspace.toggle_special("ayugram"))
 end)
 
 -- Однократная первичная инициализация цветовой схемы строго внутри живой D-Bus сессии
