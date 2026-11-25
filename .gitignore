@@ -1,1 +1,6 @@
+result
+result-*
+.direnv/
 hardware-configuration.nix
+hosts/*/hardware-configuration.nix
+hosts/*/local-boot.nix

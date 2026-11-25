@@ -1,0 +1,28 @@
+{ inputs, ... }:
+{
+  imports = [
+    inputs.caelestia-shell.homeManagerModules.default
+    ./caelestia.nix
+    ./monitors.nix
+    ./services.nix
+    ./apps.nix
+    ./office.nix
+  ];
+
+  home = {
+    username = "vyto4ka";
+    homeDirectory = "/home/vyto4ka";
+    stateVersion = "24.11";
+  };
+
+  programs.home-manager.enable = true;
+
+  # wayland.windowManager.hyprland и programs.fish намеренно выключены:
+  # конфигурацией управляют системные модули и дотсы Caelestia.
+
+  xdg.configFile."hypr/xdph.conf".text = ''
+    screencopy {
+      allow_token_by_default = true
+    }
+  '';
+}
