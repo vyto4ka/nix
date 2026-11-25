@@ -65,7 +65,7 @@ hyprdynamicmonitors tui --enable-lid-events
 
 ## Основные сочетания клавиш
 
-- `SUPER + A` : лаунчер приложений Caelestia
+- `SUPER` : лаунчер приложений Caelestia
 - `Win + Пробел` : переключение раскладки `us,ru`
 - `SUPER + T` : терминал `foot`
 - `SUPER + W` : браузер `zen-beta`

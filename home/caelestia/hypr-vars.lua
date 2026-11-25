@@ -4,5 +4,4 @@ return {
     fileExplorer    = "thunar",
     cursorTheme     = "Bibata-Modern-Classic",
     sleepGestureCmd = "systemctl suspend",
-    kbLauncher      = "SUPER + A",
 }
