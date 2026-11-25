@@ -1,4 +1,4 @@
-# NixOS для ASUS Zenbook S 16 (UM5606WA)
+# NixOS для Zenbook
 
 Конфигурация NixOS (`nixos-unstable`) с окружением Hyprland (UWSM, Lua), оболочкой Caelestia (`caelestia-shell` + `caelestia-cli` + `caelestia-dots`), экраном входа SilentSDDM и запасной сессией KDE Plasma 6.
 

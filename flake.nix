@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for ASUS Zenbook S 16 (UM5606WA) with Hyprland and Caelestia";
+  description = "NixOS configuration for Zenbook with Hyprland and Caelestia";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
