@@ -23,6 +23,7 @@
 
   xdg.configFile = {
     "environment.d/10-wayland-ozone.conf".text = ''
+      XDG_SESSION_TYPE=wayland
       NIXOS_OZONE_WL=1
       ELECTRON_OZONE_PLATFORM_HINT=auto
     '';

@@ -9,6 +9,7 @@ let
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram "$out/bin/vesktop" \
+        --set XDG_SESSION_TYPE wayland \
         --add-flags "--ozone-platform=wayland" \
         --add-flags "--enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
     '';
