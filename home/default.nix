@@ -3,6 +3,7 @@
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
     ./caelestia.nix
+    ./dotfiles.nix
     ./monitors.nix
     ./services.nix
     ./apps.nix

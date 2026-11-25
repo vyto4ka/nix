@@ -11,7 +11,7 @@ nix-shell -p git --run "git clone https://github.com/vyto4ka/nix ~/nixos-config 
 sudo reboot
 ```
 
-Репозиторий клонируется строго в `~/nixos-config`: на этот путь указывают живые симлинки переопределений Caelestia (`home/caelestia/`).
+Репозиторий клонируется строго в `~/nixos-config`: на этот путь указывают живые симлинки переопределений Caelestia (`home/caelestia/`) и пользовательских конфигов (`config/`).
 
 ## Подготовка перед установкой (dual-boot с Windows 11)
 
@@ -39,6 +39,13 @@ sudo reboot
 nrs   # nh os switch ~/nixos-config --hostname zenbook
 nrb   # nh os boot ~/nixos-config --hostname zenbook
 ```
+
+## Пользовательские конфиги (`~/.config/`)
+
+Файлы из каталога `config/` в корне репозитория автоматически раскладываются модулем `home/dotfiles.nix` в `~/.config/` пофайловыми живыми симлинками (`mkOutOfStoreSymlink`). Подкаталоги внутри `~/.config/` остаются обычными записываемыми директориями, а файлы с совпадающим путём переопределяют дефолтные конфиги других модулей.
+
+- Добавление или удаление файла: `git add config/...` и `nrs`.
+- Дальнейшие правки содержимого уже подключённых файлов применяются сразу без пересборки.
 
 ## Мониторы и режим Clamshell
 
