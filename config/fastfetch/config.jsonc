@@ -18,58 +18,58 @@
   "display": {
     "separator": "  ",
     "key": {
-      "width": 15
+      "width": 14
     }
   },
   "modules": [
     "break",
     {
       "type": "title",
-      "format": "{#34}╭─── {#1;36}{user-name}{#34}@{#1;35}{host-name}{#34} ─────────────────────────────────╮"
+      "format": "{#34}╭─── {#1;36}{user-name}{#34}@{#1;35}{host-name}{#34} ────────────────────────────╮"
     },
     {
       "type": "os",
       "key": "{#34}│ {#36}  os",
-      "format": "{pretty-name<35} {#34}│"
+      "format": "{pretty-name}{#34}\u001b[80G│"
     },
     {
       "type": "kernel",
       "key": "{#34}│ {#36}  kernel",
-      "format": "{release<35} {#34}│"
+      "format": "{release}{#34}\u001b[80G│"
     },
     {
       "type": "uptime",
       "key": "{#34}│ {#36}  uptime",
-      "format": "{formatted<35} {#34}│"
+      "format": "{formatted}{#34}\u001b[80G│"
     },
     {
       "type": "wm",
       "key": "{#34}│ {#36}  wm",
-      "format": "{pretty-name<35} {#34}│"
+      "format": "{pretty-name}{#34}\u001b[80G│"
     },
     {
       "type": "shell",
       "key": "{#34}│ {#36}  shell",
-      "format": "{pretty-name} {version<29} {#34}│"
+      "format": "{pretty-name} {version}{#34}\u001b[80G│"
     },
     {
       "type": "packages",
       "key": "{#34}│ {#36}  pkgs",
-      "format": "{all<35} {#34}│"
+      "format": "{all}{#34}\u001b[80G│"
     },
     {
       "type": "memory",
       "key": "{#34}│ {#36}  memory",
-      "format": "{used} / {total<24} {#34}│"
+      "format": "{used} / {total}{#34}\u001b[80G│"
     },
     {
       "type": "battery",
       "key": "{#34}│ {#36}󰁹  battery",
-      "format": "{capacity<4} ({status<28}) {#34}│"
+      "format": "{capacity} ({status}){#34}\u001b[80G│"
     },
     {
       "type": "custom",
-      "format": "{#34}╰────────────────────────────────────────────────────╯"
+      "format": "{#34}╰────────────────────────────────────────────────╯"
     },
     {
       "type": "colors",
