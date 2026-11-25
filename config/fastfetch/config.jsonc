@@ -18,61 +18,63 @@
   "display": {
     "separator": "  ",
     "key": {
-      "width": 13
+      "width": 15
     }
   },
   "modules": [
     "break",
     {
       "type": "title",
-      "format": "{#34}╭─── {#1;36}{user-name}{#34}@{#1;35}{host-name}{#34} ────────────"
+      "format": "{#34}╭─── {#1;36}{user-name}{#34}@{#1;35}{host-name}{#34} ─────────────────────────────────╮"
     },
     {
       "type": "os",
       "key": "{#34}│ {#36}  os",
-      "format": "{pretty-name}"
+      "format": "{pretty-name<35} {#34}│"
     },
     {
       "type": "kernel",
       "key": "{#34}│ {#36}  kernel",
-      "format": "{release}"
+      "format": "{release<35} {#34}│"
     },
     {
       "type": "uptime",
-      "key": "{#34}│ {#36}  uptime"
+      "key": "{#34}│ {#36}  uptime",
+      "format": "{formatted<35} {#34}│"
     },
     {
       "type": "wm",
       "key": "{#34}│ {#36}  wm",
-      "format": "{pretty-name}"
+      "format": "{pretty-name<35} {#34}│"
     },
     {
       "type": "shell",
       "key": "{#34}│ {#36}  shell",
-      "format": "{pretty-name} {version}"
+      "format": "{pretty-name} {version<29} {#34}│"
     },
     {
       "type": "packages",
-      "key": "{#34}│ {#36}  pkgs"
+      "key": "{#34}│ {#36}  pkgs",
+      "format": "{all<35} {#34}│"
     },
     {
       "type": "memory",
       "key": "{#34}│ {#36}  memory",
-      "format": "{used} / {total}"
+      "format": "{used} / {total<24} {#34}│"
     },
     {
       "type": "battery",
       "key": "{#34}│ {#36}󰁹  battery",
-      "format": "{capacity} ({status})"
-    },
-    {
-      "type": "colors",
-      "key": "{#34}│ {#36}  colors",
-      "symbol": "circle"
+      "format": "{capacity<4} ({status<28}) {#34}│"
     },
     {
       "type": "custom",
-      "format": "{#34}╰───────────────────────────────"
+      "format": "{#34}╰────────────────────────────────────────────────────╯"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 2,
+      "symbol": "circle"
     },
     "break"
   ]
