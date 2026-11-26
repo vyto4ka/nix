@@ -81,7 +81,11 @@
     "/home/vyto4ka/.local/state/caelestia/theme/chrome.json";
 
   security = {
-    polkit.enable = true;
+    polkit = {
+      enable = true;
+      # В NixOS 26.11 setuid-обёртка /run/wrappers/bin/pkexec стала opt-in (нужна для TUN в Keqdroid)
+      enablePkexecWrapper = true;
+    };
     pam.services.sddm.enableGnomeKeyring = true;
   };
 
