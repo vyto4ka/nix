@@ -20,6 +20,32 @@
     memoryPercent = 50;
   };
 
-  # Совместимость системных часов в dual-boot с Windows 11
+  # Совместимость системных часов в dual-boot с Windows 11:
+  # в LOCAL-режиме systemd-timesyncd не пишет в RTC, а save-hwclock удалён из nixpkgs
   time.hardwareClockInLocalTime = true;
+
+  systemd = {
+    services.sync-rtc-localtime = {
+      description = "Sync NTP-synchronized system clock to RTC in local time";
+      after = [ "systemd-timesyncd.service" ];
+      wantedBy = [ "multi-user.target" ];
+      unitConfig = {
+        ConditionPathExists = [
+          "/dev/rtc"
+          "/run/systemd/timesync/synchronized"
+        ];
+        StartLimitIntervalSec = 0;
+      };
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.util-linux}/bin/hwclock --systohc --localtime --noadjfile";
+      };
+    };
+
+    paths.sync-rtc-localtime = {
+      description = "Watch NTP synchronization state to update local RTC";
+      wantedBy = [ "multi-user.target" ];
+      pathConfig.PathChanged = "/run/systemd/timesync/synchronized";
+    };
+  };
 }
