@@ -1,6 +1,11 @@
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 
+# Убираем баннер Caelestia и --key-padding-left 5, который ломал выравнивание fastfetch
+function fish_greeting
+    command -v fastfetch >/dev/null && fastfetch
+end
+
 abbr nrs 'nh os switch ~/nixos-config --hostname zenbook'
 abbr nrb 'nh os boot ~/nixos-config --hostname zenbook'
 abbr nru '~/nixos-config/scripts/update.sh'

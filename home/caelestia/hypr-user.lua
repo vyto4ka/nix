@@ -135,8 +135,13 @@ hl.bind("SUPER + SHIFT + B", function()
     )
 end)
 
--- Отдельный special workspace для AyuGram по Win+A (переносит открытое окно или запускает AyuGram)
-hl.window_rule({ match = { class = "^com\\.ayugram\\.desktop$" }, workspace = "special:ayugram" })
+-- Отдельный special workspace для AyuGram по Win+A (без блюра и принудительной прозрачности)
+hl.window_rule({
+    match     = { class = "^(com|org)\\.ayugram\\.desktop$|[Aa]yu[Gg]ram" },
+    workspace = "special:ayugram",
+    no_blur   = true,
+    opaque    = true,
+})
 hl.bind("SUPER + A", function()
     local active_ws = hl.get_active_special_workspace()
     if active_ws and active_ws.name == "special:ayugram" then

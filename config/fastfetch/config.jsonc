@@ -2,9 +2,9 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "file",
-    "source": "~/.config/fastfetch/nixowos-small.txt",
+    "source": "~/.config/fastfetch/nixowos.txt",
     "padding": {
-      "top": 1,
+      "top": 0,
       "left": 1,
       "right": 3
     },
@@ -12,7 +12,8 @@
       "1": "38;2;82;119;195",
       "2": "38;2;126;186;228",
       "3": "38;2;223;144;175",
-      "4": "38;2;45;120;158"
+      "4": "38;2;45;120;158",
+      "5": "38;2;95;146;211"
     }
   },
   "display": {
@@ -25,51 +26,71 @@
     "break",
     {
       "type": "title",
-      "format": "{#34}╭─── {#1;36}{user-name}{#34}@{#1;35}{host-name}{#34} ────────────────────────────╮"
+      "format": "{#34}╭─── {#1;36}{user-name}{#34}@{#1;35}{host-name}{#34} ──────────────────────────────────────────╮"
     },
     {
       "type": "os",
       "key": "{#34}│ {#36}  os",
-      "format": "{pretty-name}{#34}\u001b[80G│"
+      "format": "{pretty-name}{#34}\u001b[112G│"
     },
     {
       "type": "kernel",
       "key": "{#34}│ {#36}  kernel",
-      "format": "{release}{#34}\u001b[80G│"
+      "format": "{release}{#34}\u001b[112G│"
     },
     {
       "type": "uptime",
       "key": "{#34}│ {#36}  uptime",
-      "format": "{formatted}{#34}\u001b[80G│"
+      "format": "{formatted}{#34}\u001b[112G│"
     },
     {
       "type": "wm",
       "key": "{#34}│ {#36}  wm",
-      "format": "{pretty-name}{#34}\u001b[80G│"
+      "format": "{pretty-name}{#34}\u001b[112G│"
     },
     {
       "type": "shell",
       "key": "{#34}│ {#36}  shell",
-      "format": "{pretty-name} {version}{#34}\u001b[80G│"
+      "format": "{pretty-name} {version}{#34}\u001b[112G│"
     },
     {
       "type": "packages",
       "key": "{#34}│ {#36}  pkgs",
-      "format": "{all}{#34}\u001b[80G│"
+      "format": "{all}{#34}\u001b[112G│"
     },
     {
-      "type": "memory",
+      "type": "custom",
+      "format": "{#34}├──────────────────────────────────────────────────────────────┤"
+    },
+    {
+      "type": "cpu",
+      "key": "{#34}│ {#36}  cpu",
+      "format": "{name} ({cores-logical}) @ {freq-max}{#34}\u001b[112G│"
+    },
+    {
+      "type": "gpu",
+      "key": "{#34}│ {#36}󰢮  gpu",
+      "format": "{name}{#34}\u001b[112G│"
+    },
+    {
+      "type": "command",
       "key": "{#34}│ {#36}  memory",
-      "format": "{used} / {total}{#34}\u001b[80G│"
+      "text": "awk -F'[=: ]+' 'FNR==NR{if($1==\"MemTotal\")t=$2;else if($1==\"MemAvailable\")a=$2;next} /^E:MEMORY_DEVICE_[0-9]+_TYPE=/&&!type&&$3!=\"Unknown\"&&$3!=\"\"&&$3!~/^</{type=$3} /^E:MEMORY_DEVICE_[0-9]+_CONFIGURED_SPEED_MTS=/&&!cs&&$3+0>0{cs=$3} /^E:MEMORY_DEVICE_[0-9]+_SPEED_MTS=/&&!ms&&$3+0>0{ms=$3} END{s=cs?cs:ms; printf \"%.2f GiB / %.2f GiB\", (t-a)/1048576, t/1048576; if(type&&s) printf \" (%s @ %s MT/s)\", type, s; else if(s) printf \" (%s MT/s)\", s; else if(type) printf \" (%s)\", type; print \"\"}' /proc/meminfo $([ -r /run/udev/data/+dmi:id ] && echo /run/udev/data/+dmi:id)",
+      "format": "{result}{#34}\u001b[112G│"
+    },
+    {
+      "type": "display",
+      "key": "{#34}│ {#36}󰍹  display",
+      "format": "{width}x{height}{?refresh-rate} @ {refresh-rate} Hz{?}{?name} ({name}){?}{#34}\u001b[112G│"
     },
     {
       "type": "battery",
       "key": "{#34}│ {#36}󰁹  battery",
-      "format": "{capacity} ({status}){#34}\u001b[80G│"
+      "format": "{capacity} ({status}){#34}\u001b[112G│"
     },
     {
       "type": "custom",
-      "format": "{#34}╰────────────────────────────────────────────────╯"
+      "format": "{#34}╰──────────────────────────────────────────────────────────────╯"
     },
     {
       "type": "colors",
