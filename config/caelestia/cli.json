@@ -1,5 +1,18 @@
 {
   "theme": {
     "enableChromium": false
+  },
+  "toggles": {
+    "communication": {
+      "discord": {
+        "enable": true,
+        "match": [
+          { "class": "vesktop" },
+          { "class": "discord" }
+        ],
+        "command": ["vesktop"],
+        "move": true
+      }
+    }
   }
 }
