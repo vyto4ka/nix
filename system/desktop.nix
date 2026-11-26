@@ -59,6 +59,7 @@
         "nggfkkbmogmadfoikakkfegkoilfcfao" # Lumno (Command Bar и копирование URL)
         "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
         "hnafhkjheookmokbkpnfpmemlppjdgoi" # Allow Right-Click (ПКМ и копирование на любых сайтах)
+        "hcmdppfhmmicinapmebikpefpecjhbhp" # Hatsune Miku (тема Chrome и обои новой вкладки)
       ];
       extraOpts = {
         PasswordManagerEnabled = false;
@@ -75,10 +76,6 @@
       };
     };
   };
-
-  # Живая Material You тема Chrome из пользовательского шаблона Caelestia (без беспарольного sudo)
-  environment.etc."opt/chrome/policies/managed/caelestia.json".source =
-    "/home/vyto4ka/.local/state/caelestia/theme/chrome.json";
 
   security = {
     polkit = {
