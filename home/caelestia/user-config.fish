@@ -1,9 +1,15 @@
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 
-# Убираем баннер Caelestia и --key-padding-left 5, который ломал выравнивание fastfetch
+# При старте терминала показываем мини-fastfetch; команда fastfetch использует полный config.jsonc
 function fish_greeting
-    command -v fastfetch >/dev/null && fastfetch
+    if command -v fastfetch >/dev/null
+        if test -f ~/.config/fastfetch/mini.jsonc
+            fastfetch --config ~/.config/fastfetch/mini.jsonc
+        else
+            fastfetch
+        end
+    end
 end
 
 abbr nrs 'nh os switch ~/nixos-config --hostname zenbook'
