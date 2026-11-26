@@ -43,5 +43,8 @@
     "showOnHover": false,
     "minHoverThreshold": 600,
     "dragThreshold": 140
+  },
+  "paths": {
+    "wallpaperDir": "~/Изображения/Wallpapers"
   }
 }

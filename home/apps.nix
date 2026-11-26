@@ -27,6 +27,7 @@ in
     ayugram-desktop
     vesktopWayland
     vlc
+    qimgv
     bat
     duf
     kdePackages.ark

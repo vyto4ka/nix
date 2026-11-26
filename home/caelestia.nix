@@ -185,7 +185,14 @@ in
     "caelestia/hypr-user.lua".source = mkOutOfStoreSymlink "${configDir}/home/caelestia/hypr-user.lua";
     "caelestia/user-config.fish".source =
       mkOutOfStoreSymlink "${configDir}/home/caelestia/user-config.fish";
+
+    # Единый путь к обоям для systemd-сервиса caelestia-shell и caelestia-cli
+    "environment.d/20-caelestia.conf".text = ''
+      CAELESTIA_WALLPAPERS_DIR=${config.home.homeDirectory}/Изображения/Wallpapers
+    '';
   };
+
+  home.sessionVariables.CAELESTIA_WALLPAPERS_DIR = "${config.home.homeDirectory}/Изображения/Wallpapers";
 
   # Однократный seed перезаписываемых конфигов (btop и Thunar) и рабочих директорий
   home.activation.seedCaelestiaMutableConfigs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -194,7 +201,8 @@ in
       "$HOME/.config/Thunar" \
       "$HOME/.config/hypr/scheme" \
       "$HOME/.local/state/caelestia" \
-      "$HOME/.local/share/fonts"
+      "$HOME/.local/share/fonts" \
+      "$HOME/Изображения/Wallpapers"
 
     if [ ! -e "$HOME/.config/btop/btop.conf" ]; then
       install -m 0644 "${caelestiaDotsNixos}/btop/btop.conf" "$HOME/.config/btop/btop.conf"
