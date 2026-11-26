@@ -10,7 +10,7 @@
   };
 
   boot.kernelParams = [
-    # Резерв при фризах OLED или выхода из сна на RDNA 3.5 (отключает PSR):
-    # "amdgpu.dcdebugmask=0x400"
+    # Отключаем Panel Replay на OLED DCN 3.5 (ASUS Zenbook UM5606 / Strix Point)
+    "amdgpu.dcdebugmask=0x400"
   ];
 }

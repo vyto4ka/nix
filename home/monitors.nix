@@ -156,7 +156,7 @@ in
           ]
         }:/run/current-system/sw/bin"
       ];
-      ExecStart = "${pkgs.hyprdynamicmonitors}/bin/hyprdynamicmonitors run --config %h/.config/hyprdynamicmonitors/config.toml --enable-lid-events";
+      ExecStart = "${pkgs.hyprdynamicmonitors}/bin/hyprdynamicmonitors run --config %h/.config/hyprdynamicmonitors/config.toml --enable-lid-events --disable-power-events";
       Restart = "on-failure";
       RestartSec = 5;
     };
