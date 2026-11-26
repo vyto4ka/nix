@@ -49,7 +49,36 @@
         thunar-volman
       ];
     };
+
+    # Декларативные расширения и политики для Google Chrome (/etc/opt/chrome/policies/managed/)
+    chromium = {
+      enable = true;
+      extensions = [
+        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+        "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+        "nggfkkbmogmadfoikakkfegkoilfcfao" # Lumno (Command Bar и копирование URL)
+        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+        "hnafhkjheookmokbkpnfpmemlppjdgoi" # Allow Right-Click (ПКМ и копирование на любых сайтах)
+      ];
+      extraOpts = {
+        PasswordManagerEnabled = false;
+        AutofillAddressEnabled = false;
+        AutofillCreditCardEnabled = false;
+        ExtensionSettings = {
+          "nngceckbapebfimnlniiiahkandclblb" = {
+            toolbar_pin = "force_pinned";
+          };
+          "hnafhkjheookmokbkpnfpmemlppjdgoi" = {
+            toolbar_pin = "force_pinned";
+          };
+        };
+      };
+    };
   };
+
+  # Живая Material You тема Chrome из пользовательского шаблона Caelestia (без беспарольного sudo)
+  environment.etc."opt/chrome/policies/managed/caelestia.json".source =
+    "/home/vyto4ka/.local/state/caelestia/theme/chrome.json";
 
   security = {
     polkit.enable = true;

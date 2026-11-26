@@ -1,0 +1,4 @@
+{
+  "BrowserThemeColor": "#{{ surface.hex }}",
+  "BrowserColorScheme": "device"
+}

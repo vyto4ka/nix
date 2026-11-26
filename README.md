@@ -69,7 +69,7 @@ hyprdynamicmonitors tui --enable-lid-events
 - `SUPER + A` : отдельный воркспейс AyuGram (`special:ayugram`)
 - `Win + Пробел` : переключение раскладки `us,ru`
 - `SUPER + T` : терминал `foot`
-- `SUPER + W` : браузер `zen-beta`
+- `SUPER + W` : браузер `google-chrome-stable`
 - `SUPER + C` : редактор `codium`
 - `SUPER + E` : файловый менеджер `thunar`
 - `SUPER + SHIFT + Q` : скриншот области с фризом экрана в буфер обмена (`hyprshot`)

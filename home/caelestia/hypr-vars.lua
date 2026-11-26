@@ -1,5 +1,5 @@
 return {
-    browser               = "zen-beta",
+    browser               = "google-chrome-stable",
     editor                = "codium",
     fileExplorer          = "thunar",
     cursorTheme           = "Bibata-Modern-Classic",

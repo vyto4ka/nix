@@ -22,6 +22,7 @@ in
     antigravity-ide
     antigravity-cli
     inputs.vysh.packages.${system}.default
+    bitwarden-desktop
     obsidian
     ayugram-desktop
     vesktopWayland

@@ -106,8 +106,13 @@ in
       "$HOME/.config/btop/themes" \
       "$HOME/.config/Thunar" \
       "$HOME/.config/hypr/scheme" \
-      "$HOME/.local/state/caelestia" \
+      "$HOME/.local/state/caelestia/theme" \
       "$HOME/.local/share/fonts"
+
+    if [ ! -e "$HOME/.local/state/caelestia/theme/chrome.json" ]; then
+      printf '%s\n' '{"BrowserThemeColor":"#141318","BrowserColorScheme":"device"}' \
+        > "$HOME/.local/state/caelestia/theme/chrome.json"
+    fi
 
     if [ ! -e "$HOME/.config/btop/btop.conf" ]; then
       install -m 0644 "${caelestiaDotsNixos}/btop/btop.conf" "$HOME/.config/btop/btop.conf"
