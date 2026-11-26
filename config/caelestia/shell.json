@@ -32,7 +32,8 @@
     }
   },
   "border": {
-    "rounding": 20
+    "thickness": 2,
+    "rounding": 12
   },
   "dashboard": {
     "showOnHover": true,
