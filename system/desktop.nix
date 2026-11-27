@@ -39,6 +39,9 @@
       xwayland.enable = true;
     };
 
+    # Запись экрана без pkexec (создаёт /run/wrappers/bin/gsr-kms-server с cap_sys_admin+ep)
+    gpu-screen-recorder.enable = true;
+
     # Файловый менеджер Thunar и инфраструктура настроек
     dconf.enable = true;
     xfconf.enable = true;

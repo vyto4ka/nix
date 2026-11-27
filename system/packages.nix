@@ -62,7 +62,6 @@ in
     wl-clipboard
     cliphist
     dart-sass
-    gpu-screen-recorder
     ffmpeg
     libnotify
     brightnessctl
