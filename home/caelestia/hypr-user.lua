@@ -1,16 +1,20 @@
 local home = os.getenv("HOME")
 
--- Перекрываем апстримный input.lua раскладкой us,ru по Win+Space
+-- Перекрываем апстримный input.lua раскладкой us,ru
 -- и убираем мыло в XWayland-окнах на OLED 2880x1800 (scale 1.5)
 hl.config({
     input = {
         kb_layout  = "us,ru",
-        kb_options = "grp:win_space_toggle",
+        kb_options = "",
     },
     xwayland = {
         force_zero_scaling = true,
     },
 })
+
+-- Переключение раскладки строго по Win+Space (без XKB grp:win_space_toggle,
+-- который срабатывал при SUPER+ALT+Space и CTRL+SUPER+Space)
+hl.bind("SUPER + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"), { locked = true })
 
 -- Более быстрые и лёгкие анимации (меньше кадров перерисовки при сохранении плавности)
 hl.animation({ leaf = "layersIn", enabled = true, speed = 2.5, bezier = "emphasizedDecel", style = "slide" })
