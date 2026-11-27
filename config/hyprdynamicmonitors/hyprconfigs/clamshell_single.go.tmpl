@@ -1,0 +1,4 @@
+{{- $laptop := index .MonitorsByTag "laptop" -}}
+{{- $ext1 := index .MonitorsByTag "ext1" -}}
+monitor={{$laptop.Name}},disable
+monitor={{$ext1.Name}},preferred,0x0,1

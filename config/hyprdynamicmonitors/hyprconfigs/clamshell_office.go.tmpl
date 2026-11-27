@@ -1,0 +1,6 @@
+{{- $laptop := index .MonitorsByTag "laptop" -}}
+{{- $left := index .MonitorsByTag "left" -}}
+{{- $right := index .MonitorsByTag "right" -}}
+monitor={{$laptop.Name}},disable
+monitor={{$left.Name}},preferred,0x0,1
+monitor={{$right.Name}},preferred,2560x360,1

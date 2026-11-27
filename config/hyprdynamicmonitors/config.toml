@@ -1,0 +1,115 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.conf"
+debounce_time_ms = 1200
+post_apply_exec = "hyprctl reload"
+
+[scoring]
+description_match = 15
+name_match = 10
+power_state_match = 3
+lid_state_match = 5
+
+# 1. Мобильный режим (крышка открыта, только встроенный OLED 2880x1800)
+[profiles.mobile]
+config_file = "hyprconfigs/mobile.go.tmpl"
+config_file_type = "template"
+
+[[profiles.mobile.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+# 2. Открытая крышка + внешний монитор(ы) (общий фолбэк)
+[profiles.docked_open]
+config_file = "hyprconfigs/docked_open.go.tmpl"
+config_file_type = "template"
+
+[profiles.docked_open.conditions]
+lid_state = "Opened"
+
+[[profiles.docked_open.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.docked_open.conditions.required_monitors]]
+name = "^(DP|HDMI-A)-[0-9]+$"
+match_name_using_regex = true
+monitor_tag = "ext1"
+
+# 3. Открытая крышка + фиксированная пара Samsung (лево) + ViewSonic (право, по низу)
+[profiles.docked_open_office]
+config_file = "hyprconfigs/docked_open_office.go.tmpl"
+config_file_type = "template"
+
+[profiles.docked_open_office.conditions]
+lid_state = "Opened"
+
+[[profiles.docked_open_office.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.docked_open_office.conditions.required_monitors]]
+description = "Samsung Electric Company LS27F61x H4CL201797"
+monitor_tag = "left"
+
+[[profiles.docked_open_office.conditions.required_monitors]]
+description = "ViewSonic Corporation VA2432-FHD W332120C0379"
+monitor_tag = "right"
+
+# 4. Clamshell: закрытая крышка + 1 внешний монитор
+[profiles.clamshell_single]
+config_file = "hyprconfigs/clamshell_single.go.tmpl"
+config_file_type = "template"
+
+[profiles.clamshell_single.conditions]
+lid_state = "Closed"
+
+[[profiles.clamshell_single.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.clamshell_single.conditions.required_monitors]]
+name = "^(DP|HDMI-A)-[0-9]+$"
+match_name_using_regex = true
+monitor_tag = "ext1"
+
+# 5. Clamshell: закрытая крышка + 2 внешних монитора (общий фолбэк)
+[profiles.clamshell_dual]
+config_file = "hyprconfigs/clamshell_dual.go.tmpl"
+config_file_type = "template"
+
+[profiles.clamshell_dual.conditions]
+lid_state = "Closed"
+
+[[profiles.clamshell_dual.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.clamshell_dual.conditions.required_monitors]]
+name = "^(DP|HDMI-A)-[0-9]+$"
+match_name_using_regex = true
+monitor_tag = "ext1"
+
+[[profiles.clamshell_dual.conditions.required_monitors]]
+name = "^(DP|HDMI-A)-[0-9]+$"
+match_name_using_regex = true
+monitor_tag = "ext2"
+
+# 6. Clamshell: закрытая крышка + Samsung (лево, 2560x1440) + ViewSonic (право, 1920x1080, выровнен по низу)
+[profiles.clamshell_office]
+config_file = "hyprconfigs/clamshell_office.go.tmpl"
+config_file_type = "template"
+
+[profiles.clamshell_office.conditions]
+lid_state = "Closed"
+
+[[profiles.clamshell_office.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.clamshell_office.conditions.required_monitors]]
+description = "Samsung Electric Company LS27F61x H4CL201797"
+monitor_tag = "left"
+
+[[profiles.clamshell_office.conditions.required_monitors]]
+description = "ViewSonic Corporation VA2432-FHD W332120C0379"
+monitor_tag = "right"

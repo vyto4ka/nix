@@ -1,0 +1,7 @@
+{{- $laptop := index .MonitorsByTag "laptop" -}}
+{{- $ext1 := index .MonitorsByTag "ext1" -}}
+monitor={{$laptop.Name}},highrr,0x0,1.5
+monitor={{$ext1.Name}},preferred,auto,1
+{{- range .ExtraMonitors}}
+monitor={{.Name}},preferred,auto,1
+{{- end}}
