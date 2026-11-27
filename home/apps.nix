@@ -17,7 +17,9 @@ let
   # Временный обход падения JSC::intlAvailableTimeZoneEntries в WebKitGTK 2.54.2 + ICU 78
   webkitPkgs = inputs.nixpkgs-webkit.legacyPackages.${system};
   ayugramFixed = pkgs.ayugram-desktop.override {
-    webkitgtk_4_1 = webkitPkgs.webkitgtk_4_1;
+    telegram-desktop = pkgs.telegram-desktop.override {
+      webkitgtk_4_1 = webkitPkgs.webkitgtk_4_1;
+    };
   };
 in
 {
