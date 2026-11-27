@@ -4,9 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Временный пин на срез nixos-26.05 с WebKitGTK 2.52.6 (в 2.54.2 + ICU 78 падает WebView в AyuGram)
-    nixpkgs-webkit.url = "github:NixOS/nixpkgs/7486293a941f7b0ec123f0c431517027f705f60f";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,6 +72,7 @@
         };
         modules = [
           ./hosts/zenbook
+          inputs.keqdroid.nixosModules.default
           inputs.silentSDDM.nixosModules.default
           inputs.nix-index-database.nixosModules.nix-index
           inputs.nixowos.nixosModules.default

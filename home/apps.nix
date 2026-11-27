@@ -14,13 +14,6 @@ let
         --add-flags "--enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
     '';
   };
-  # Временный обход падения JSC::intlAvailableTimeZoneEntries в WebKitGTK 2.54.2 + ICU 78
-  webkitPkgs = inputs.nixpkgs-webkit.legacyPackages.${system};
-  ayugramFixed = pkgs.ayugram-desktop.override {
-    telegram-desktop = pkgs.telegram-desktop.override {
-      webkitgtk_4_1 = webkitPkgs.webkitgtk_4_1;
-    };
-  };
 in
 {
   home.packages = with pkgs; [
@@ -31,7 +24,7 @@ in
     inputs.vysh.packages.${system}.default
     bitwarden-desktop
     obsidian
-    ayugramFixed
+    ayugram-desktop
     vesktopWayland
     vlc
     qimgv

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   networking = {
     networkmanager = {
@@ -11,7 +11,5 @@
 
   services.resolved.enable = true;
 
-  environment.systemPackages = [
-    inputs.keqdroid.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+  programs.keqdroid.enable = true;
 }

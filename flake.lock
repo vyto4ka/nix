@@ -90,11 +90,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795452473,
-        "narHash": "sha256-+dkmA2eGitfck7NXxkm8n6QL1+tTKrt7ifDwfdC2EBI=",
+        "lastModified": 1795808178,
+        "narHash": "sha256-quyQReULMzbwJY2ucqcK+7V9gDN613lBFAtlhtLKKyA=",
         "owner": "Lemonochka",
         "repo": "keqdroid",
-        "rev": "e65096ab5d531c298494e55c06a6459b689ff774",
+        "rev": "9694d5a6f03111d018d249b986d3dcaf38804bec",
         "type": "github"
       },
       "original": {
@@ -146,6 +146,26 @@
         "type": "github"
       }
     },
+    "nixowos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793552284,
+        "narHash": "sha256-rDleIxwOAJYl/YasQY6vM5mkazNBRlyRHdrB/meTY64=",
+        "owner": "yunfachi",
+        "repo": "nixowos",
+        "rev": "3265e570543747a7cd48e1d4d98aaf891cb3a3c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yunfachi",
+        "repo": "nixowos",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1795234589,
@@ -190,6 +210,7 @@
         "home-manager": "home-manager",
         "keqdroid": "keqdroid",
         "nix-index-database": "nix-index-database",
+        "nixowos": "nixowos",
         "nixpkgs": "nixpkgs",
         "silentSDDM": "silentSDDM",
         "vysh": "vysh",

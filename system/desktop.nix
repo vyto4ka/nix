@@ -81,11 +81,7 @@
   };
 
   security = {
-    polkit = {
-      enable = true;
-      # В NixOS 26.11 setuid-обёртка /run/wrappers/bin/pkexec стала opt-in (нужна для TUN в Keqdroid)
-      enablePkexecWrapper = true;
-    };
+    polkit.enable = true;
     pam.services.sddm.enableGnomeKeyring = true;
   };
 
