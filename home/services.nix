@@ -4,6 +4,7 @@
   xsession.preferStatusNotifierItems = true;
 
   services = {
+    blueman-applet.enable = true;
     hyprpolkitagent.enable = true;
     network-manager-applet.enable = true;
     kdeconnect = {
