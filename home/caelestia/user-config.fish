@@ -12,10 +12,10 @@ function fish_greeting
     end
 end
 
-abbr nrs 'nh os switch ~/nixos-config --hostname zenbook'
-abbr nrb 'nh os boot ~/nixos-config --hostname zenbook'
-abbr nru '~/nixos-config/scripts/update.sh'
-abbr nrc '~/nixos-config/scripts/update.sh --caelestia'
+alias nrs 'nh os switch ~/nixos-config --hostname zenbook'
+alias nrb 'nh os boot ~/nixos-config --hostname zenbook'
+alias nru '~/nixos-config/scripts/update.sh'
+alias nrc '~/nixos-config/scripts/update.sh --caelestia'
 
 function blur --description 'Управление блюром Hyprland: blur [on|off|reset|<size> [passes]]'
     if test (count $argv) -eq 0

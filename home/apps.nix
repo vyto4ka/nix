@@ -24,8 +24,7 @@ in
     inputs.vysh.packages.${system}.default
     bitwarden-desktop
     obsidian
-    # Встроенный WebKitGTK 2.54.2 + ICU 78 падает по SIGABRT в JSC::intlAvailableTimeZoneEntries
-    (ayugram-desktop.override { withWebkit = false; })
+    ayugram-desktop
     vesktopWayland
     vlc
     qimgv
